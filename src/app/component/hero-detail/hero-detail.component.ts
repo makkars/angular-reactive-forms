@@ -16,12 +16,14 @@ export class HeroDetailComponent {
   }
 
   createForm() {
-    this.heroForm = this.fb.group({
-      name: ['', Validators.required],
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
+    this.heroForm = this.fb.group({ // <-- the parent FormGroup
+      name: ['', Validators.required ],
+      address: this.fb.group({ // <-- the child FormGroup
+        street: '',
+        city: '',
+        state: '',
+        zip: ''
+      }),
       power: '',
       sidekick: ''
     });
